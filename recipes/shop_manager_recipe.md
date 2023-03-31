@@ -32,11 +32,6 @@ I want to be able to create a new order.
 
 ## 2. Design the Class System
 
-```
-```
-
-_Also design the interface of each class in more detail._
-
 ```ruby
 class ShopManager
     def initialize(io, items, orders)
@@ -122,8 +117,7 @@ end
 
 ```
 
-
-## 3. Create Examples as Unit Tests
+## 4. Create Examples as Unit Tests
 
 ```ruby
 
@@ -137,11 +131,5 @@ expect(item_manager).to eq([])
 # 2 - Check an item quantity
 
 item_manager = ItemManager.new
-
-
-
-
-
-
 
 ```

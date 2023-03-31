@@ -1,21 +1,18 @@
 class ShopManager
-    def initialize(io, items, orders)
-        @items = items
-        @orders = orders
-        @io = io
+    def initialize
+        @items = []
+        @orders = []
     end
-
 
     def list_functions
         loop do
             puts "Welcome to the shop management program!"
             puts "What do you want to do (choose a number)
-            \n1 = list all the shop items
-            \n2 = create a new item
-            \n3 = list all orders
-            \n4 = create a new order"
+            1 = list all the shop items
+            2 = create a new item
+            3 = list all orders
+            4 = create a new order"
             choice = gets.chomp
-
             case choice
                 when "1"
                 list_items
@@ -45,3 +42,6 @@ class ShopManager
         return "placeholder_create_order"
     end
 end
+
+shop_manager = ShopManager.new
+shop_manager.list_functions
