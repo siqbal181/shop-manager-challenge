@@ -16,7 +16,6 @@ RSpec.configure do |config|
   end
 end
 
-
 require 'database_connection'
 
 # Make sure this connects to your test database

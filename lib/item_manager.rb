@@ -22,11 +22,11 @@ class ItemManager
     return @items
   end
   
-    def create_item(item)
-      sql = 'INSERT INTO items (name, price, quantity) VALUES($1, $2, $3)'
-      sql_params = [item.name, item.price, item.quantity]
-      items_result_set = DatabaseConnection.exec_params(sql, sql_params)
+  def create_item(item)
+    sql = 'INSERT INTO items (name, price, quantity) VALUES($1, $2, $3)'
+    sql_params = [item.name, item.price, item.quantity]
+    items_result_set = DatabaseConnection.exec_params(sql, sql_params)
   
-      return nil
-    end
+    return nil
   end
+end
