@@ -17,4 +17,16 @@ RSpec.describe ItemManager do
     expect(items.length).to eq(5)
     expect(items.first.name).to eq('Coffee Machine')
   end
+
+  it "creates a new item for the shop" do
+    item_manager = ItemManager.new
+    item = Item.new
+    item.name = 'Headphones'
+    item.price = '150'
+    item.quantity = '20'
+    item_manager.create_item(item)
+    items = item_manager.list_items
+    expect(items.length).to eq(6)
+    expect(items.last.name).to eq('Headphones')
+  end
 end

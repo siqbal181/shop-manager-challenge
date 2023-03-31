@@ -2,21 +2,31 @@ require_relative './item'
 
 class ItemManager
   def initialize
-    @items = [] # needs to be in hash array format
-    # @items = [ {name: 'name', price: 'price', quantity: 'quantity'},]
+    @items = []
   end
 
   def list_items
-    # return @items
-    # returns an array list of the items
-    # return: name and price
-  end
+    sql = 'SELECT id, name, price, quantity FROM items;'
+    sql_params = []
+    items_result_set = DatabaseConnection.exec_params(sql, sql_params)
 
-  def create_item
-    # adds a new item to the @items hash array
-    # need to add in price, name, quantity
-    # this will be based on user input on a loop
-    # returns confirmation that the item is added
-    # somehow this links back to the table in the database storing the items
+    items_result_set.each do |row|
+      item = Item.new
+      item.id = row['id']
+      item.name = row['name']
+      item.price = row['price']
+      item.quantity = row['quantity']
+
+      @items << item
+    end
+    return @items
   end
-end
+  
+    def create_item(item)
+      sql = 'INSERT INTO items (name, price, quantity) VALUES($1, $2, $3)'
+      sql_params = [item.name, item.price, item.quantity]
+      items_result_set = DatabaseConnection.exec_params(sql, sql_params)
+  
+      return nil
+    end
+  end
