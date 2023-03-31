@@ -1,4 +1,4 @@
-TRUNCATE TABLE items, orders items_orders RESTART IDENTITY; -- replace with your own table name.
+TRUNCATE TABLE items, orders, items_orders RESTART IDENTITY; -- replace with your own table name.
 
 INSERT INTO items (name, price, quantity) VALUES ('Coffee Machine', 75, 30);
 INSERT INTO items (name, price, quantity) VALUES ('Kettle', 45, 15);
