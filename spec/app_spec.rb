@@ -1,4 +1,8 @@
 # require "./app"
+# require "./item_manager"
+# require "./item"
+# require "./order_manager"
+# require "./order"
 
 # RSpec.describe ShopManager do
 #   def reset_seeds_table

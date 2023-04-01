@@ -112,8 +112,27 @@ end
 
 ```ruby
 
-# 1 - 
+# Shop Manager
+# 1 - Lists items from shop 
 
+# Require all the relevant files
+io = double :io
+order_manager = double :order_manager
+item_manager = double :item_manager
+
+expect(io).to receive(:puts).with("Welcome to the shop management program!")
+expect(io).to receive(:puts).with("What do you want to do (choose a number)
+        1 = list all the shop items
+        2 = create a new item
+        3 = list all orders
+        4 = create a new order")
+expect(io).to receive(:gets).and_return("1")
+expect(io).to receive(:puts).with("Here is a list of all the shop items: ")
+expect(io).to receive(:puts).with("# 1 - Coffee Machine - Unit Price 200 - Quantity 99")
+
+shop_manager = ShopManager.new(io, order_manager, item_manager)
+shop.manager.list_functions
+shop.manager.list_all_items
 
 ```
 
@@ -121,15 +140,5 @@ end
 
 ```ruby
 
-# ItemManager
-
-# 1 - List an empty array
-
-item_manager = ItemManager.new
-expect(item_manager).to eq([])
-
-# 2 - Check an item quantity
-
-item_manager = ItemManager.new
 
 ```
