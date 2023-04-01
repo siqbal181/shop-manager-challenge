@@ -64,6 +64,19 @@ class ShopManager
   end
 
   def create_order
+    puts "Please enter the customer name of the new order: "
+    customer_name = gets.chomp
+    puts "Enter the item_id to order: "
+    item_id = gets.chomp.to_i
+    puts "Enter the date of the order: "
+    date = gets.chomp
+    order = Order.new
+    order.customer_name = customer_name
+    order.item_id = item_id
+    order.date = date
+    @order_manager.create_order(order)
+
+    puts "Your order has been created!"
   end
 end
 
