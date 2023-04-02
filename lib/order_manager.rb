@@ -11,11 +11,7 @@ class OrderManager
     order_result_set = DatabaseConnection.exec_params(sql, sql_params)
 
     order_result_set.each do |row|
-      order = Order.new
-      order.id = row['id']
-      order.customer_name = row['customer_name']
-      order.item_id = row['item_id']
-      order.date = row['date']
+      order = Order.new(row['id'], row['customer_name'], row['item_id'], row['date'])
 
       @orders << order
     end

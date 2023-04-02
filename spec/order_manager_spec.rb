@@ -20,10 +20,7 @@ RSpec.describe OrderManager do
 
   it "creates a new order" do
     order_manager = OrderManager.new
-    order = Order.new
-    order.customer_name = 'Sidra'
-    order.item_id = '2'
-    order.date = '2023-03-31'
+    order = Order.new("1", "Sidra", "2", "2023-03-21")
     order_manager.create_order(order)
     list_of_orders = order_manager.list_orders
 
