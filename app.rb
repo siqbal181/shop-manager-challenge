@@ -54,8 +54,7 @@ class ShopManager
   def list_orders
     @io.puts "Here is a list of orders: "
     @order_manager.list_orders.each_with_index do |order, index|
-      @io.puts "##{index + 1} - Customer Name: #{order.customer_name}
-      - Item_ID: #{order.item_id} - Date: #{order.date}"
+      @io.puts "# #{index + 1} - Customer Name: #{order.customer_name} - Item_ID: #{order.item_id} - Date: #{order.date}"
     end
   end
 
