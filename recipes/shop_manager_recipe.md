@@ -131,27 +131,58 @@ shop.manager.list_functions
 shop.manager.list_all_items
 
 # 2 Lists orders based on user putting 3
-    io = double :io
-    order_manager = double :order_manager
-    item_manager = double :item_manager
+io = double :io
+order_manager = double :order_manager
+item_manager = double :item_manager
 
-    expect(io).to receive(:puts).with("Welcome to the shop management program!")
-    expect(io).to receive(:puts).with("What do you want to do (choose a number)\n1 = list all the shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order")
-    expect(io).to receive(:gets).and_return("3")
-    expect(io).to receive(:puts).with("Here is a list of orders: ")
+expect(io).to receive(:puts).with("Welcome to the shop management program!")
+expect(io).to receive(:puts).with("What do you want to do (choose a number)\n1 = list all the shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order")
+expect(io).to receive(:gets).and_return("3")
+expect(io).to receive(:puts).with("Here is a list of orders: ")
 
-    shop_manager = ShopManager.new(io, order_manager, item_manager)
-    allow(order_manager).to receive(:list_orders).and_return([Order.new('1', "Karen", "1", "2023-03-31")])
+shop_manager = ShopManager.new(io, order_manager, item_manager)
+allow(order_manager).to receive(:list_orders).and_return([Order.new('1', "Karen", "1", "2023-03-31")])
 
-    expect(io).to receive(:puts).with("# 1 - Customer Name: Karen - Item_ID: 1 - Date: 99")
+expect(io).to receive(:puts).with("# 1 - Customer Name: Karen - Item_ID: 1 - Date: 99")
 
-    shop_manager.list_functions
+shop_manager.list_functions
 
-```
+# 3 Create an item when user enters 2
+io = double :io
+order_manager = double :order_manager
+item_manager = double :item_manager
+expect(io).to receive(:puts).with("Welcome to the shop management program!")
+expect(io).to receive(:puts).with("What do you want to do (choose a number)\n1 = list all the shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order")
+expect(io).to receive(:gets).and_return("2")
+expect(io).to receive(:puts).with("Please enter the name of the new item: ")
+expect(io).to receive(:gets).and_return("Macbook")
+expect(io).to receive(:puts).with("Enter the price of a Macbook: ")
+expect(io).to receive(:gets).and_return("849")
+expect(io).to receive(:puts).with("Enter the quantity of Macbook: ")
+expect(io).to receive(:gets).and_return("15")
+expect(io).to receive(:puts).with("Macbook has been added to the shop!")
 
-## 4. Create Examples as Unit Tests
+shop_manager = ShopManager.new(io, order_manager, item_manager)
+allow(item_manager).to receive(:create_item).and_return([Item.new('6', "Macbook", "849", "15")])
 
-```ruby
+shop_manager.list_functions
 
+# 4 Create an order when user enters 4
+io = double :io
+order_manager = double :order_manager
+item_manager = double :item_manager
+expect(io).to receive(:puts).with("Welcome to the shop management program!")
+expect(io).to receive(:puts).with("What do you want to do (choose a number)\n1 = list all the shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order")
+expect(io).to receive(:gets).and_return("4")
+expect(io).to receive(:puts).with("Please enter the customer name of the new order: ")
+expect(io).to receive(:gets).and_return("Sidra")
+expect(io).to receive(:puts).with("Enter the item_id to order: ")
+expect(io).to receive(:gets).and_return("2")
+expect(io).to receive(:puts).with("Enter the date of the order: ")
+expect(io).to receive(:gets).and_return("2023-11-03")
+expect(io).to receive(:puts).with("Your order has been created!")
+
+shop_manager = ShopManager.new(io, order_manager, item_manager)
+allow(order_manager).to receive(:create_order).and_return([Order.new('7', "Sidra", "2", "2023-11-03")])
 
 ```

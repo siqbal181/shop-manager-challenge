@@ -38,11 +38,11 @@ class ShopManager
   def create_item
     @io.puts "Please enter the name of the new item: "
     name = @io.gets.chomp
-    @io.puts "Enter the price of #{name}: "
+    @io.puts "Enter the price of a #{name}: "
     price = @io.gets.chomp.to_i
     @io.puts "Enter the quantity of #{name}: "
     quantity = @io.gets.chomp.to_i
-    item = Item.new
+    item = Item.new()
     item.name = name
     item.price = price
     item.quantity = quantity
