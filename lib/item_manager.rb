@@ -11,11 +11,7 @@ class ItemManager
     items_result_set = DatabaseConnection.exec_params(sql, sql_params)
 
     items_result_set.each do |row|
-      item = Item.new
-      item.id = row['id']
-      item.name = row['name']
-      item.price = row['price']
-      item.quantity = row['quantity']
+      item = Item.new(row['id'], row['name'], row['price'], row['quantity'])
 
       @items << item
     end

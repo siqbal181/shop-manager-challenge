@@ -13,11 +13,7 @@ class ShopManager
 
   def list_functions
     @io.puts "Welcome to the shop management program!"
-    @io.puts "What do you want to do (choose a number)
-        1 = list all the shop items
-        2 = create a new item
-        3 = list all orders
-        4 = create a new order"
+    @io.puts "What do you want to do (choose a number)\n1 = list all the shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order"
     choice = @io.gets.chomp
     case choice
     when "1"
@@ -32,8 +28,9 @@ class ShopManager
   end
 
   def list_all_items
-    @io.puts "Here is a list of all shop items: "
-    @item_manager.list_items.each_with_index do |item, index|
+    @io.puts "Here is a list of all the shop items: "
+    items = @item_manager.list_items
+    items.each_with_index do |item, index|
       @io.puts "##{index + 1} #{item.name} - Unit Price: #{item.price} - Quantity #{item.quantity}"
     end
   end

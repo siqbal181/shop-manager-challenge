@@ -121,11 +121,7 @@ order_manager = double :order_manager
 item_manager = double :item_manager
 
 expect(io).to receive(:puts).with("Welcome to the shop management program!")
-expect(io).to receive(:puts).with("What do you want to do (choose a number)
-        1 = list all the shop items
-        2 = create a new item
-        3 = list all orders
-        4 = create a new order")
+expect(io).to receive(:puts).with("What do you want to do (choose a number)\n1 = list all the shop items\n2 = create a new item\n3 = list all orders\n4 = create a new order")
 expect(io).to receive(:gets).and_return("1")
 expect(io).to receive(:puts).with("Here is a list of all the shop items: ")
 expect(io).to receive(:puts).with("# 1 - Coffee Machine - Unit Price 200 - Quantity 99")

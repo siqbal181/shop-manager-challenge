@@ -20,10 +20,7 @@ RSpec.describe ItemManager do
 
   it "creates a new item for the shop" do
     item_manager = ItemManager.new
-    item = Item.new
-    item.name = 'Headphones'
-    item.price = '150'
-    item.quantity = '20'
+    item = Item.new(6, 'Headphones', '150', '20')
     item_manager.create_item(item)
     items = item_manager.list_items
     expect(items.length).to eq(6)
